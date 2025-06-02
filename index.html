@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,6 +10,7 @@
       text-align: center;
       padding: 2em;
       background-color: #fffbe6;
+      color: #333;
     }
     #holiday {
       font-size: 1.5em;
@@ -17,9 +19,11 @@
   </style>
 </head>
 <body>
-  <h1>RAmen! 🍝</h1>
-  <div id="holiday">Loading today's Pastafarian holiday...</div>  <script>
-    fetch("https://www.pastafariancalendar.com/calendar.ics")
+  <h1>RAmen! 🍜</h1>
+  <div id="holiday">Loading today's Pastafarian holiday...</div>
+
+  <script>
+    fetch("https://corsproxy.io/?https://www.pastafariancalendar.com/calendar.ics")
       .then(response => response.text())
       .then(text => {
         const today = new Date().toISOString().split("T")[0].replace(/-/g, "");
@@ -41,5 +45,6 @@
       .catch(() => {
         document.getElementById("holiday").textContent = "Could not load holiday data. Blame the pirates.";
       });
-  </script></body>
+  </script>
+</body>
 </html>
